@@ -1,0 +1,227 @@
+.homePage-group{
+    display: flex;
+    flex:1;
+    height:0;
+    width: 0;
+}
+
+.homePage-group.vertical{
+    flex-direction: column;
+}
+.homePage-group .homePage-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.homePage{
+    flex-direction: column;
+    flex: 1 auto;
+    position: relative;
+    height:1198px
+}
+.homePage, .homepage-content{
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex:1;
+    flex-direction: column;
+}
+
+.homePage-builder{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.homePage-header{
+    flex: none;
+    height: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #EDEDED;
+}
+.homePage-tabs-wrapper{
+    display: flex;
+    flex: 1;
+    position: relative;
+    min-width: 0;
+    height: 39px;
+}
+.homePage-tabs{
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    min-width: 0;
+    overflow-x: scroll;
+}
+.homePage-tabs::before{
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 0;
+    pointer-events: none;
+}
+.homePage-tabs:first-child.is-active{
+    border-left: 0;
+    box-shadow: inset -1px 0 0 #EDEDED;
+}
+
+.homePage-tabs.is-active{
+    height: 40px;
+    border-right: 1px solid;
+    border-image-source: linear-gradient(180deg,#EDEDED 0,#EDEDED);
+    background-color: #FFFFFF;
+    color: #212121;
+
+}
+.homePage-tabs-title__wrapper{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    flex-grow: 1;
+    margin-top: 2px;
+}
+.homePage-text__wrapper{
+    display: flex;
+    overflow: hidden;
+    flex: 1;
+    align-items: center;
+}
+.homePage-tab-name{
+    font-family: var(--text-family-default);
+    line-height: 16px;
+    font-size: 11px;
+    font-weight: 400;
+    padding-left:4px ;
+    flex: 1;
+    align-self: center;
+    white-space: nowrap;
+}
+.homePage-icon-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+.home-icon-get{
+    font-family: Inter,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    letter-spacing: -.2px;
+    /* font-size: var(--text-size-xs);
+    line-height: var(--line-height-s); */
+    
+    color: #0cbb52;
+    text-align: left;
+    font-size: 9px;
+}
+.homePage-tab-actions{
+    display: inherit;
+    position: sticky;
+    right: 0;
+    align-items: center;
+}
+.create{
+    margin: 4px;
+    border-left: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 11px;
+    font-family: Inter,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica,Arial,sans-serif;
+    user-select: none;
+    cursor: pointer;
+    justify-content: center;
+    padding: 0;
+    background-color: #FFFFFF;
+}
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+.environment-wrapper{
+    cursor: ew-resize;
+    margin: 0 5px 0 0;
+    padding: 0 5px 0 0;
+    touch-action: none;
+}
+.enviroment-handler{
+    background: #EDEDED;
+    height: 100%;
+    width: 1px;
+}
+.environment-container{
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.environment-selector-container{
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+}
+.environment-view{
+    margin-right: 8px
+}
+.environment-selector-wrapper{
+    width: 100%;
+}
+.input-select-wrapper{
+    background-color: initial;
+    border: none;
+    border-radius: 0;
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: 32px;
+    position: relative;
+    width: 210px;
+}
+.input-search-group{
+    flex: 1;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    padding-right: 0;
+    height: 32px;
+    box-sizing: border-box;
+    display: flex;
+    padding-left: 10px;
+    flex-direction: row;
+}
+.input-search-group__input-wrapper{
+    position: relative;
+    flex: 1;
+}
+.input{
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    line-height:12px;
+    color: #686868;
+}
+.dropdown-button{
+    align-self: center;
+    border-left: 0;
+    background: transparent;
+    border-radius: 0;
+    flex: 0 0 30px;
+    height: 32px;
+    margin-left: auto;
+    padding: 0px;
+}
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+.btn-icon{
+    
+    height: 32px;
+    width: 32px;
+    padding: 0px;
+    background: none;
+}
+
