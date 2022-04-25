@@ -83,7 +83,56 @@ const HomePage = () => {
                                         </div>
                                     </div>
                                     <div className='homePage-content'>
+                                        <div className='sideNav-group horizontal'>
+                                            <div className='homePage-container'>
+                                                <div className='homePage'>
+                                                    <div className='main-container'>
+                                                        <div className='tab-header'>
+                                                            <div className='tab-header-container'>
+                                                                <div className='tabheader-name'>
+                                                                    <div className='tabheader-name-wrapper' title='Untitled response'>
+                                                                         <div className='tabheader-name-input'>
+                                                                             Untitled request
+                                                                        </div>           
+                                                                    </div>
+                                                                </div>
+                                                                <div className='tabheader-actions'>
+                                                                    <div className='save-button'>
+                                                                    </div> 
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className='url-container'>
+                                                            <div className='url-container-main'>
+                                                                <div className='url-container-main__group'>
+                                                                     <div className='url-editor'>
+                                                                         <div className='url-editor__list-wrapper'>
+                                                                             <div className='input-search-group'>
+                                                                                 <div className='input-search-group__input-wrapper'>
+                                                                                 <input type="search" className='input input-search' value="GET" title="GET"/>
+                                                                                 </div>
 
+                                                                             </div>
+                                                                             <div className='btn dropdown-button'>
+                                                                             <img src={collection} style={{display:'inline-flex', width:"16px" , height:"16px"}} />
+                                                                             </div>    
+                                                                               
+                                                                         </div>
+                                                                     </div>   
+                                                                     <div className='url-group'>
+                                                                     </div>    
+                                                                </div>
+                                                                <div className='url-container-button__group'>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                    
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
