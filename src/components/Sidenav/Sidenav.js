@@ -1,5 +1,6 @@
 import React from 'react'
 import collection from '../../img/collection.png'
+import history from '../../img/history.png'
 import "../Sidenav/Sidenav.css"
 
 const Sidenav = () => {
@@ -78,7 +79,7 @@ const Sidenav = () => {
                                                     </div>
                                                     <div className='left-sidebar__container-uncollapsed-tab active'>
                                                         <span>
-                                                            <img src={collection} style={{display:'inline-flex', width:"16px" , height:"16px"}} />
+                                                            <img src={history} alt="history_img" style={{display:'inline-flex', width:"16px" , height:"16px"}} />
                                                         </span>
                                                         <div className='left-sidebar__container-uncollapsed-tab-title'>
                                                             History

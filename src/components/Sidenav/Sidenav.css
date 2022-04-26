@@ -22,7 +22,7 @@
 }
 .left-sidebar-wrapper{
     display: flex;
-    height:100%;
+    height:698px;
     width: 100%;
     flex:0 0 auto;
     z-index: 20;
@@ -140,6 +140,7 @@
     box-sizing: border-box;
     flex-direction: column;
     flex: 1;
+    background: #f9f9f9;
     overflow-y: hidden;
 }
 .left-sidebar-container-tab-content-wrapper{
@@ -180,11 +181,8 @@
     display: flex;
     padding-left: 10px;
     padding-right: 10px;
-    background-color: #F9F9F9;
     height: 24px;
     flex: 1;
-    border-radius: 2px;
-    border: 1px solid #EDEDED
 }
 .input-search-group__wrapper{
     display: flex;
@@ -203,6 +201,7 @@
     color: #212121;
     width: 100%;
     font-size: 12px;
+    font-weight: 600;
     line-height: 20px;
     height: 32px;
     box-sizing: border-box;
