@@ -21,7 +21,7 @@ const Sidenav = (
     setUrl(requestItemConfig.url);
     setBody(requestItemConfig.body);
 
-    clearResponseTable(); // clear the data of response table
+    // clearResponseTable(); // clear the data of response table
   };
   return (
     <div className="sideNav-container">
