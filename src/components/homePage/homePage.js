@@ -9,6 +9,7 @@ import JSONPretty from "react-json-pretty";
 import Sidenav from "../Sidenav/Sidenav";
 
 const HomePage = ({
+    tabs, tabIndex, handleTabChange,
   url,
   setUrl,
   method,
@@ -23,6 +24,8 @@ const HomePage = ({
   responseData,
   responseStatus,
 }) => {
+
+//   const { tabs, tabIndex, handleTabChange } = props;  
   const [statusClassName, setStatusClassName] = useState(
     "nav-item border rounded border-2 border-success"
   );
@@ -242,7 +245,21 @@ const HomePage = ({
                                     <div className="homePage-header params-content">
                                       <div className="homePage-tabs-wrapper">
                                         <div className="homePage-tabs">
-                                          <div className="tabs tabs-primary">
+                                        {tabs.map((tab, index) => {
+                                            return (
+                                                <span
+                                                onClick={() => handleTabChange(index)}
+                                                className={
+                                                    index === tabIndex
+                                                    ? "tab tab-primary tab-text-wrapper is-active"
+                                                    : "tabs tabs-primary tab-text-wrapper"
+                                                }
+                                                >
+                                                {tab}
+                                                </span>
+                                            );
+                                            })}
+                                          {/* <div className="tabs tabs-primary">
                                             <div className="tab tab-primary is-active">
                                               <div className="tab-text-wrapper">
                                                 <span>Params</span>
@@ -278,7 +295,7 @@ const HomePage = ({
                                                 <span>Settings</span>
                                               </div>
                                             </div>
-                                          </div>
+                                          </div> */}
                                         </div>
                                         <div className="homePage-tabs-actions">
                                           <div className="btn btn-text btn-action">

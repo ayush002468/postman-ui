@@ -16,6 +16,25 @@ function App() {
   const [responseCookie, setResponseCookie] = useState("");
   const [responseStatus, setResponseStatus] = useState("null");
 
+  const [requestTabs] = useState([
+    "Params",
+    "Authorization",
+    "Headers",
+    "Body",
+    "Pre-request Script",
+    "Tests",
+    "Settings",
+  ]);
+
+  // const [tabIndex, setTabIndex] = useState(0);
+  const [requestsTabIndex, setRequestsTabIndex] = useState(0);
+
+
+
+  const handleRequestTabChange = (index) => {
+    setRequestsTabIndex(index);
+  };
+
   useEffect(() => {
     setMethod("GET");
     setUrl("");
@@ -25,8 +44,8 @@ function App() {
     setBody("{\n\n}");
   }, []);
   const clearResponseTable = () => {
-    // setResponseData("");
-    // setResponseHeaders({});
+    setResponseData("");
+    setResponseHeaders({});
     setResponseCookie("");
   };
 
@@ -48,20 +67,9 @@ function App() {
         credentials: "include",
       });
       const data = await res.json();
-      
-      // set the response table
 
- 
-      // setResponseHeaders((headers) =>{
-      //   headers = {}; // reset headers object values
-      //   for (const pair of res.headers.entries()) {
-      //     headers[pair[0]] = pair[1];
-      //   }
-      //   return headers;
-      // });
-
-      // if (data) setResponseData(JSON.stringify(data));
-      // if (document.cookie) setResponseCookie(document.cookie);
+      if (data) setResponseData(JSON.stringify(data));
+      if (document.cookie) setResponseCookie(document.cookie);
       setResponseStatus(res.status);
       console.log(res.status)
 
@@ -93,7 +101,10 @@ function App() {
                 headers={headers}
                 sendHandler={sendHandler}
                 history={history}
-              clearResponseTable={clearResponseTable}
+                clearResponseTable={clearResponseTable}
+                tabs={requestTabs}
+                tabIndex={requestsTabIndex}
+                handleTabChange={(index) => handleRequestTabChange(index)}
                 />        
     </div>
   );
