@@ -55,7 +55,7 @@
 }
 .btn{
     box-sizing: border-box;
-    display: inline-flex;
+    display: flex !important;
     align-items: center;
     user-select: none;
     cursor: pointer;
@@ -65,11 +65,13 @@
 }
 .left-sidebar-header__right-buttons .new-button{
     color: black;
-    background: #EDEDED;;
+    background: #EDEDED;
+    display: flex;
 }
 .left-sidebar-header__right-buttons .import-button{
     color:black;
     background: #E6E6E6;
+    display: flex;
 }
 .left-sidebar-header__right-buttons>*{
     height: 20px;
@@ -195,6 +197,7 @@
 .input-search-group__input-wrapper{
     position: relative;
     flex: 1;
+    display: flex;
 }
 .input{
     border: 1px solid transparent;

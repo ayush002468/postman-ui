@@ -192,10 +192,13 @@
     display: flex;
     padding-left: 10px;
     flex-direction: row;
+    align-items: center;
 }
 .input-search-group__input-wrapper{
     position: relative;
     flex: 1;
+    display: flex;
+    align-items: center;
 }
 .input{
     font-family: sans-serif;
@@ -364,6 +367,7 @@
     white-space: nowrap;
     position: absolute;
     z-index: 1;
+    width: 454px;
 }
 .url-container-button__group{
     display: flex;
@@ -379,7 +383,9 @@
     background-color: #097bed;
 } */
 .send_button{
-    background-color: #097bed;
+    background-color: #097bed !important;
+    color: white !important;
+    border-color: #097bed !important;
     width: 81px;
     box-sizing: border-box;
     font-size: 14px;
@@ -391,30 +397,8 @@
     height: 40px;
     padding: 8px 10px;
     border-right: thin solid rgba(0,0,0,.07);
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+    border-radius: 4px;
 }
-/* .url-container__send-button:first-child{
-    width: 70px;
-    box-sizing: border-box;
-    font-size: 14px;
-    font-weight: 600;
-    color: #fff;
-}
-.btn-group-separator:not(:first-child){
-    border-right: thin solid rgba(0,0,0,.07);
-}
-.btn-group .btn:first-child{
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-.url-container__send-button:last-child{
-    width: 32px;
-}
-.btn-group .btn:last-child{
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-} */
 .homePage-group {
     flex: 1;
     display: flex;
@@ -743,4 +727,11 @@
     min-width: 100px;
     color: #212121 !important;
     border-color: #f2f2f2 !important;
+    display: flex !important;
+}
+.response-meta-item li{
+    display:flex;
+}
+.nav-link{
+    padding: 0rem 1rem !important;
 }
