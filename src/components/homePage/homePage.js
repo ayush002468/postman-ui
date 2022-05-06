@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./homePage.css";
-import collection from "../../img/collection.png";
+
 import view from "../../img/view.png";
 import dots from "../../img/dots.svg";
 import plus from "../../img/plus.png";
-// import React, { useEffect, useState } from "react";
 import JSONPretty from "react-json-pretty";
 import Sidenav from "../Sidenav/Sidenav";
 
 const HomePage = ({
-    tabs, tabIndex, handleTabChange,
+  tabs,
+  tabIndex,
+  handleTabChange,
   url,
   setUrl,
   method,
@@ -17,27 +18,20 @@ const HomePage = ({
   sendHandler,
   body,
   setBody,
-  headers,
   setHeaders,
+  headers,
   history,
   clearResponseTable,
   responseData,
-  responseStatus
+  responseStatus,
 }) => {
-    // console.log(history,
-    //     setHeaders,
-    //     setMethod,
-    //     setUrl,
-    //     setBody,
-    //     clearResponseTable);
-
-//   const { tabs, tabIndex, handleTabChange } = props;  
+  console.log(tabIndex);
   const [statusClassName, setStatusClassName] = useState(
     "nav-item border rounded border-2 border-success"
   );
-  const [environment, setEnvironment] = useState(["No environment"]);
-  const [text, setText] = useState(["Text", "JSON", "XML", "HTML"]);
-  const [response, setResponse] = useState([
+  const [environment] = useState(["No environment"]);
+  const [text] = useState(["Text", "JSON", "XML", "HTML"]);
+  const [response] = useState([
     "Save Response",
     "Save Response as File",
     "Save Response as Example",
@@ -55,27 +49,28 @@ const HomePage = ({
       setStatusClassName("nav-item border rounded border-2 border-success");
     }
   }, [responseStatus]);
-  
+
   return (
     <div className="homePage-group verticle">
       <div className="homePage-container">
-        <div className="homePage" style={{ height: "1198px", width: "1128px" }}>
+        <div className="homePage">
           <div className="homepage-content">
             <div className="sideNav-group horizontal">
               <Sidenav
-               history={history}
-               setMethod={setMethod}
-               setHeaders={setHeaders}
-               setUrl={setUrl}
-               setBody={setBody}
-               clearResponseTable={clearResponseTable}/>
+                history={history}
+                setMethod={setMethod}
+                setHeaders={setHeaders}
+                setUrl={setUrl}
+                setBody={setBody}
+                clearResponseTable={clearResponseTable}
+              />
 
               <div className="homePage-container">
                 <div className="homePage">
                   <div className="homePage-builder">
                     <div className="homePage-header">
                       <div className="homePage-tabs-wrapper">
-                        <div className="homePage-tabs">
+                        <div className="homePage-tabs header-tab">
                           <div className="homePage-tabs is-active">
                             <div className="homePage-tabs-title__wrapper">
                               <div className="homePage-text__wrapper">
@@ -258,93 +253,24 @@ const HomePage = ({
                                     <div className="homePage-header params-content">
                                       <div className="homePage-tabs-wrapper">
                                         <div className="homePage-tabs">
-                                        {tabs.map((tab, index) => {
+                                          {tabs.map((tab, index) => {
                                             return (
-                                                <span
-                                                onClick={() => handleTabChange(index)}
+                                              <span
+                                                onClick={() =>
+                                                  handleTabChange(index)
+                                                }
                                                 className={
-                                                    index === tabIndex
+                                                  index === tabIndex
                                                     ? "tab tab-primary tab-text-wrapper is-active"
                                                     : "tabs tabs-primary tab-text-wrapper"
                                                 }
-                                                >
+                                              >
                                                 {tab}
-                                                </span>
+                                              </span>
                                             );
-                                            })}
-                                          {/* <div className="tabs tabs-primary">
-                                            <div className="tab tab-primary is-active">
-                                              <div className="tab-text-wrapper">
-                                                <span>Params</span>
-                                              </div>
-                                            </div>
-                                            <div className="tab tab-primary">
-                                              <div className="tab-text-wrapper">
-                                                <span>Authorization</span>
-                                              </div>
-                                            </div>
-                                            <div className="tab tab-primary">
-                                              <div className="tab-text-wrapper">
-                                                <span>Headers</span>
-                                              </div>
-                                            </div>
-                                            <div className="tab tab-primary">
-                                              <div className="tab-text-wrapper">
-                                                <span>Body</span>
-                                              </div>
-                                            </div>
-                                            <div className="tab tab-primary">
-                                              <div className="tab-text-wrapper">
-                                                <span>Pre-request-Script</span>
-                                              </div>
-                                            </div>
-                                            <div className="tab tab-primary">
-                                              <div className="tab-text-wrapper">
-                                                <span>Tests</span>
-                                              </div>
-                                            </div>
-                                            <div className="tab tab-primary">
-                                              <div className="tab-text-wrapper">
-                                                <span>Settings</span>
-                                              </div>
-                                            </div>
-                                          </div> */}
-                                          <div className="tab-content" id="pills-tabContent">
-          <div
-            className="tab-pane fade show active"
-            id="pills-body"
-            role="tabpanel"
-            aria-labelledby="pills-body-tab"
-          >
-            <textarea
-              name="body"
-              className="bg-light border border-1 rounded p-3 json-pretty"
-              id="body"
-              value={body}
-              cols="70"
-              rows="10"
-              onChange={e => setBody(e.target.value)}
-            ></textarea>
-          </div>
-          <div
-            className="tab-pane fade"
-            id="pills-headers"
-            role="tabpanel"
-            aria-labelledby="pills-headers-tab"
-          >
-            <textarea
-              name="headers"
-              className="bg-light border border-1 rounded p-3"
-              value={headers}
-              id="headers"
-              cols="70"
-              rows="10"
-              onChange={e => setHeaders(e.target.value)}
-            >
-              {headers}
-            </textarea>
-          </div>
-        </div>
+                                          })}
+
+                                          
                                         </div>
                                         <div className="homePage-tabs-actions">
                                           <div className="btn btn-text btn-action">
@@ -353,74 +279,129 @@ const HomePage = ({
                                         </div>
                                       </div>
                                     </div>
-                                    <div className="homepage-content">
-                                      <div className="url_editor-group">
-                                        <div className="editor-title">
-                                          <span>Query Params</span>
-                                        </div>
-                                        <div className="editor_params">
-                                          <div className="key_value-editor">
-                                            <div className="key_value-form-editor">
-                                              <div className="key_value-header">
-                                                <div className="key_value-header-row">
-                                                  <div className="key_value-form-actions"></div>
-                                                  <div className="suggestion_group">
-                                                    <div className="key-value-header-item">
-                                                      <div className="header-content">
-                                                        KEY
-                                                      </div>
-                                                    </div>
-                                                    <div className="key-value-header-item">
-                                                      <div className="header-content">
-                                                        VALUE
-                                                      </div>
-                                                    </div>
-                                                    <div className="key-value-header-item">
-                                                      <div className="header-content">
-                                                        DESCRIPTION
-                                                      </div>
-                                                    </div>
-                                                    <div className="bulk__editor-controls">
-                                                      <div className="key_value-toggle">
-                                                        <div className="dropdown">
-                                                          <div className="btn btn-text">
-                                                            <img
-                                                              src={dots}
-                                                              alt="dot_img"
-                                                              style={{
-                                                                display:
-                                                                  "inline-flex",
-                                                                width: "16px",
-                                                                height: "16px",
-                                                              }}
-                                                            />
-                                                          </div>
+                                    {tabIndex === 3 && (
+                                            <div className="homepage-content">
+                                              <div className="url_editor-group">
+                                                <div
+                                                  className="tab-content"
+                                                  id="pills-tabContent"
+                                                >
+                                                  <div
+                                                    className="tab-pane fade show active"
+                                                    id="pills-body"
+                                                    role="tabpanel"
+                                                    aria-labelledby="pills-body-tab"
+                                                  >
+                                                    <textarea
+                                                      name="body"
+                                                      className="bg-light request-area border border-1 rounded p-3 json-pretty json-pretty-container"
+                                                      id="body"
+                                                      spellCheck="false"
+                                                      value={body}
+                                                      cols="70"
+                                                      rows="10"
+                                                      onChange={e =>
+                                                        setBody(e.target.value)
+                                                      }
+                                                    ></textarea>
+                                                  </div>
+                                                  <div
+                                                    className="tab-pane fade"
+                                                    id="pills-headers"
+                                                    role="tabpanel"
+                                                    aria-labelledby="pills-headers-tab"
+                                                  >
+                                                    <textarea
+                                                      name="headers"
+                                                      className="bg-light border border-1 rounded p-3"
+                                                      value={headers}
+                                                      id="headers"
+                                                      cols="70"
+                                                      rows="10"
+                                                      onChange={(e) =>
+                                                        setHeaders(
+                                                          e.target.value
+                                                        )
+                                                      }
+                                                    >
+                                                      {headers}
+                                                    </textarea>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          )}
+                                    {tabIndex !== 3 && (
+                                      <div className="homepage-content">
+                                        <div className="url_editor-group">
+                                          <div className="editor-title">
+                                            <span>Query Params</span>
+                                          </div>
+                                          <div className="editor_params">
+                                            <div className="key_value-editor">
+                                              <div className="key_value-form-editor">
+                                                <div className="key_value-header">
+                                                  <div className="key_value-header-row">
+                                                    <div className="key_value-form-actions"></div>
+                                                    <div className="suggestion_group">
+                                                      <div className="key-value-header-item">
+                                                        <div className="header-content">
+                                                          KEY
                                                         </div>
                                                       </div>
-                                                      <div className="btn btn-text bulk-editor">
-                                                        Bulk Edit
+                                                      <div className="key-value-header-item">
+                                                        <div className="header-content">
+                                                          VALUE
+                                                        </div>
+                                                      </div>
+                                                      <div className="key-value-header-item">
+                                                        <div className="header-content">
+                                                          DESCRIPTION
+                                                        </div>
+                                                      </div>
+                                                      <div className="bulk__editor-controls">
+                                                        <div className="key_value-toggle">
+                                                          <div className="dropdown">
+                                                            <div className="btn btn-text">
+                                                              <img
+                                                                src={dots}
+                                                                alt="dot_img"
+                                                                style={{
+                                                                  display:
+                                                                    "inline-flex",
+                                                                  width: "16px",
+                                                                  height:
+                                                                    "16px",
+                                                                }}
+                                                              />
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                        <div className="btn btn-text bulk-editor">
+                                                          Bulk Edit
+                                                        </div>
                                                       </div>
                                                     </div>
                                                   </div>
                                                 </div>
-                                              </div>
-                                              <div className="key-value__body">
-                                                <div className="key_value-header-row">
-                                                  <div className="key_value-form-actions"></div>
-                                                  <div className="suggestion_group">
-                                                    <div className="key-value-header-item">
-                                                      <div className="key-value-placeholder">
-                                                        KEY
+                                                <div className="key-value__body">
+                                                  <div className="key_value-header-row">
+                                                    <div className="key_value-form-actions"></div>
+                                                    <div className="suggestion_group">
+                                                      <div className="key-value-header-item">
+                                                        <div className="key-value-placeholder">
+                                                          KEY
+                                                        </div>
                                                       </div>
-                                                    </div>
-                                                    <div className="key-value-header-item">
-                                                      <div className="key-value-placeholder">
-                                                        VALUE
+                                                      <div className="key-value-header-item">
+                                                        <div className="key-value-placeholder">
+                                                          VALUE
+                                                        </div>
                                                       </div>
-                                                    </div>
-                                                    <div className="key-value-header-item">
-                                                      <div className="key-value-placeholder">
-                                                        DESCRIPTION
+                                                      <div className="key-value-header-item">
+                                                        <div className="key-value-placeholder">
+                                                          DESCRIPTION
+                                                        </div>
                                                       </div>
                                                     </div>
                                                   </div>
@@ -429,11 +410,11 @@ const HomePage = ({
                                             </div>
                                           </div>
                                         </div>
+                                        <div className="body-resizehandler">
+                                          <div className="resize-body"></div>
+                                        </div>
                                       </div>
-                                      <div className="body-resizehandler">
-                                        <div className="resize-body"></div>
-                                      </div>
-                                    </div>
+                                    )}
                                     <div className="homePage-content">
                                       <div className="footer-response-container">
                                         <div className="footer-response__header">
@@ -471,11 +452,11 @@ const HomePage = ({
                                                   <li
                                                     className={statusClassName}
                                                     role="presentation"
-                                                    >
+                                                  >
                                                     <div className="nav-link text-muted">
-                                                    {responseStatus}
+                                                      {responseStatus}
                                                     </div>
-                                                </li>
+                                                  </li>
                                                 </div>
                                                 <div className="response-meta-time">
                                                   <span>Time:</span>
@@ -522,27 +503,6 @@ const HomePage = ({
                                                     <div className="tab-text-wrapper">
                                                       Raw
                                                     </div>
-                                                    {/* <div
-                                                          className="tab-pane fade show active"
-                                                          id="pills-data"
-                                                          role="tabpanel"
-                                                          aria-labelledby="pills-data-tab"
-                                                        >
-                                                          <div
-                                                            className="data-content bg-light border border-1 rounded p-3"
-                                                            style={{
-                                                              width: "523px",
-                                                              height: "246px",
-                                                            }}
-                                                          >
-                                                            <JSONPretty
-                                                              data={
-                                                                responseData
-                                                              }
-                                                              mainStyle="background:#f8f9fa"
-                                                            />
-                                                          </div>
-                                                        </div> */}
                                                   </div>
                                                   <div className="tabs tab-secondry">
                                                     <div className="tab-text-wrapper">
@@ -554,143 +514,6 @@ const HomePage = ({
                                                       Visualize
                                                     </div>
                                                   </div>
-                                                  {/* <div
-                                                    className="tab-content"
-                                                    id="pills-tabContent"
-                                                  >
-                                                    <div className="mb-3">
-                                                      <ul
-                                                        className="nav nav-pills mb-3 justify-content-center"
-                                                        id="pills-tab"
-                                                        role="tablist"
-                                                      >
-                                                        <li
-                                                          className="nav-item"
-                                                          role="presentation"
-                                                        >
-                                                          <button
-                                                            className="nav-link active"
-                                                            id="pills-data-tab"
-                                                            data-bs-toggle="pill"
-                                                            data-bs-target="#pills-data"
-                                                            type="button"
-                                                            role="tab"
-                                                            aria-controls="pills-data"
-                                                            aria-selected="true"
-                                                          >
-                                                            Data
-                                                          </button>
-                                                        </li>
-                                                        <li
-                                                          className="nav-item"
-                                                          role="presentation"
-                                                        >
-                                                          <button
-                                                            className="nav-link"
-                                                            id="pills-resheaders-tab"
-                                                            data-bs-toggle="pill"
-                                                            data-bs-target="#pills-resheaders"
-                                                            type="button"
-                                                            role="tab"
-                                                            aria-controls="pills-resheaders"
-                                                            aria-selected="false"
-                                                          >
-                                                            Headers
-                                                          </button>
-                                                        </li>
-                                                        <li
-                                                          className="nav-item"
-                                                          role="presentation"
-                                                        >
-                                                          <button
-                                                            className="nav-link"
-                                                            id="pills-cookie-tab"
-                                                            data-bs-toggle="pill"
-                                                            data-bs-target="#pills-cookie"
-                                                            type="button"
-                                                            role="tab"
-                                                            aria-controls="pills-cookie"
-                                                            aria-selected="false"
-                                                          >
-                                                            Cookies
-                                                          </button>
-                                                        </li>
-                                                        <li
-                                                          className={
-                                                            statusClassName
-                                                          }
-                                                          role="presentation"
-                                                        >
-                                                          <div className="nav-link text-muted">
-                                                            {responseStatus}
-                                                          </div>
-                                                        </li>
-                                                      </ul>
-                                                      <div
-                                                        className="tab-content"
-                                                        id="pills-tabContent"
-                                                      >
-                                                        <div
-                                                          className="tab-pane fade show active"
-                                                          id="pills-data"
-                                                          role="tabpanel"
-                                                          aria-labelledby="pills-data-tab"
-                                                        >
-                                                          <div
-                                                            className="data-content bg-light border border-1 rounded p-3"
-                                                            style={{
-                                                              width: "523px",
-                                                              height: "246px",
-                                                            }}
-                                                          >
-                                                            <JSONPretty
-                                                              data={
-                                                                responseData
-                                                              }
-                                                              mainStyle="background:#f8f9fa"
-                                                            />
-                                                          </div>
-                                                        </div>
-                                                        <div
-                                                          className="tab-pane fade"
-                                                          id="pills-resheaders"
-                                                          role="tabpanel"
-                                                          aria-labelledby="pills-resheaders-tab"
-                                                        >
-                                                          <div
-                                                            className="resheader-content bg-light border border-1 rounded p-3"
-                                                            style={{
-                                                              width: "523px",
-                                                              height: "246px",
-                                                            }}
-                                                          >
-                                                            <JSONPretty
-                                                              data={JSON.stringify(
-                                                                responseHeaders
-                                                              )}
-                                                              mainStyle="background:#f8f9fa"
-                                                            />
-                                                          </div>
-                                                        </div>
-                                                        <div
-                                                          className="tab-pane fade"
-                                                          id="pills-cookie"
-                                                          role="tabpanel"
-                                                          aria-labelledby="pills-cookie-tab"
-                                                        >
-                                                          <div
-                                                            className="cookie-content bg-light border border-1 rounded p-3"
-                                                            style={{
-                                                              width: "523px",
-                                                              height: "246px",
-                                                            }}
-                                                          >
-                                                            {responseCookie}
-                                                          </div>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div> */}
                                                   <div>
                                                     <div className="dropdown text-editor">
                                                       <select
