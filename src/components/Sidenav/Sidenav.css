@@ -1,5 +1,6 @@
 .sideNav{
-    height: 1198px;
+    height: 74.88rem;
+    width: 32.5rem;
 }
 .sideNav-group{
     flex: 1;
@@ -22,12 +23,11 @@
 }
 .left-sidebar-wrapper{
     display: flex;
-    height:698px;
-    width: 100%;
-    flex:0 0 auto;
+    height: 53.44rem;
+    /* width: 100%; */
+    /* flex: 0 0 auto; */
     z-index: 20;
     flex-direction: column;
-    position: relative;
 }
 .left-sidebar-header{
     height:40px;
@@ -86,7 +86,6 @@
     background: #ebebeb;
     z-index: 20;
     flex: 1;
-    overflow: hidden;
 }
 .left-sidebar__container-uncollapsed{
     justify-content: space-between;

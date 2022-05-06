@@ -1,31 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import collection from "../../img/collection.png";
 import History from "../../img/history.png";
 import "../Sidenav/Sidenav.css";
 
 const Sidenav = (
   history,
-  setHeaders,
-  setMethod,
-  setUrl,
-  setBody
+  // setHeaders,
+  // setMethod,
+  // setUrl,
+  // setBody
 ) => {
 
-  const clickHistoryItemHandler = (e) => {
-    const itemId = e.currentTarget.Math.random();
-    console.log(itemId);
-    const requestItemConfig = history.find((item) => item.id === itemId);
-    console.log(requestItemConfig);
+  // const clickHistoryItemHandler = (e) => {
+  //   const itemId = e.currentTarget.Math.random();
+  //   console.log(itemId);
+  //   const requestItemConfig = history.find((item) => item.id === itemId);
+  //   console.log(requestItemConfig);
 
-    // set the data that exist in request item configuartion
-    setMethod(requestItemConfig.method);
-    setHeaders(requestItemConfig.headers);
-    setUrl(requestItemConfig.url);
-    setBody(requestItemConfig.body);
-  };
+  //   // set the data that exist in request item configuartion
+  //   setMethod(requestItemConfig.method);
+  //   setHeaders(requestItemConfig.headers);
+  //   setUrl(requestItemConfig.url);
+  //   setBody(requestItemConfig.body);
+  // };
   return (
     <div className="sideNav-container">
-      <div className="sideNav" style={{ height: "1198px", width: "380px" }}>
+      <div className="sideNav">
         <div className="sideNav-content">
           <div className="left-sidebar-wrapper">
             <div className="left-sidebar-header">
@@ -52,6 +52,7 @@ const Sidenav = (
                     <span>
                       <img
                         src={collection}
+                        alt="collection-img"
                         style={{
                           display: "inline-flex",
                           width: "16px",
@@ -67,6 +68,7 @@ const Sidenav = (
                     <span>
                       <img
                         src={collection}
+                        alt="collection-img"
                         style={{
                           display: "inline-flex",
                           width: "16px",
@@ -82,6 +84,7 @@ const Sidenav = (
                     <span>
                       <img
                         src={collection}
+                        alt="collection-img"
                         style={{
                           display: "inline-flex",
                           width: "16px",
@@ -97,6 +100,7 @@ const Sidenav = (
                     <span>
                       <img
                         src={collection}
+                        alt="collection-img"
                         style={{
                           display: "inline-flex",
                           width: "16px",
@@ -112,6 +116,7 @@ const Sidenav = (
                     <span>
                       <img
                         src={collection}
+                        alt="collection-img"
                         style={{
                           display: "inline-flex",
                           width: "16px",
@@ -127,6 +132,7 @@ const Sidenav = (
                     <span>
                       <img
                         src={collection}
+                        alt="collection-img"
                         style={{
                           display: "inline-flex",
                           width: "16px",
@@ -172,7 +178,13 @@ const Sidenav = (
                                 title="search"
                               />
                             </div>
-                            <ul className="list-group ms-5">
+                            
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div>
+                      <ul className="list-group">
                               {/* <li className="list-group-item d-flex justify-content-center align-items-center pe-2 border-1 border-warning">
                                 <h3 className="text-warning">History Table</h3>
                               </li> */}
@@ -185,8 +197,8 @@ const Sidenav = (
                                   <li
                                     key={requestItem.id}
                                     id={requestItem.id}
-                                    className="list-group-item d-flex btn justify-content-between align-items-center pe-2 border-1 border-warning border-top-0"
-                                    onClick={clickHistoryItemHandler}
+                                    className="list-group-item d-flex btn justify-content-between align-items-center pe-2 border-1 border-top-0"
+                                    // onClick={clickHistoryItemHandler}
                                   >
                                     {requestItem.url}
                                     <span className="badge bg-primary rounded-pill">
@@ -196,9 +208,7 @@ const Sidenav = (
                                 ))
                               )}
                             </ul>
-                          </div>
-                        </div>
-                      </div>
+                            </div>
                     </div>
                   </div>
                 </div>

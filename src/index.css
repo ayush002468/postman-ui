@@ -1,37 +1,223 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
-* {
-  font-family: var(--font), sans-serif;
-  box-sizing: border-box;
-}
-#root {
-  min-height: 100vh;
-}
-html, body, #root, .App {
-  height: 100%;
-  text-rendering: optimizeLegibility;
-    text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-}
+:root {	
+	--font: Inter;
+	--style: normal;
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: #FFFFFF;
+	--web-h1: 3.5rem;
+	--web-h2: 2.25rem;
+	--web-h3: 1.5rem;
+	--web-h4: 1.25rem;
+	--web-h5: 1rem;
+	--web-heading:2rem;
+
+	--web-msg: 1.5625rem;
+	--web-msg-line-height: 2rem;
+
+	--web-h1-line-height: 4rem;
+	--web-h2-line-height: 3rem;
+	--web-h3-line-height: 2.5rem;
+	--web-h4-line-height: 1.5rem;
+	--web-h5-line-height: 3rem;
+	--web-line-height: 2.25rem;
+
+	--web-fs-paragraph: 1.25rem;
+	--web-line-height: 1.5rem;
+	--web-fs-smallText: 0.75rem;
+	--web-fs-button: 0.875rem;
+	
+
+	--fw-bold: bold;
+	--fw-normal: 500;
+	--fw-light: 400;
+
+	--mobile-h1: 1.375rem;
+	--mobile-h2: 1.25rem;
+	--mobile-h3: 1rem;
+	--mobile-h4: 0.7rem;
+	--mobile-h5: 0.8rem;
+	--mobile-fs-paragraph: 0.875rem;
+	--mobile-line-height: 1.25rem;
+	--mobile-fs-smallText: 0.625rem;
+	--mobile-fs-button: 0.813rem;
 }
 html {
-  /* Setting root font size for 'rem' */
-  font-size: 0.834vw;
-  --base-fontsize-mobile: 3.75vw;
+    /* Setting root font size for 'rem' */
+    font-size: 0.834vw;
+    --base-fontsize-mobile: 3.75vw;
+}
+body{
+    text-align: center;
+    margin: 0;
+}
+* {
+    font-family: var(--font), sans-serif;
+    box-sizing: border-box;
+}
+@keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+.weight-bold {
+    font-weight: 700 !important;
+}
+.weight-medium {
+    font-weight: 500 !important;
+}
+.weight-regular {
+    font-weight: 400 !important;
+}
+h1, h2 , h3 , h4 {
+    margin: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1,
+.h1 {
+    font-family: "Inter";
+    font-style: normal;
+    font-size: 3rem; /* 48px */
+    line-height: 3.25rem; /* 52px */
+}
+
+h2,
+.h2 {
+    font-family: "Inter";
+    font-style: normal;
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem; /* 40px */
+}
+
+h3,
+.h3 {
+    font-family: "Inter";
+    font-style: normal;
+    font-size: 1.75rem; /* 28px */
+    line-height: 2rem; /* 32px */
+}
+
+h4,
+.h4 {
+    font-family: "Inter";
+    font-style: normal;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.5rem; /* 24px */
+}
+
+.font-body {
+    font-family: "Inter";
+    font-style: normal;
+    font-size: 1rem; /* 16px */
+    line-height: 1.375rem; /* 22px */
+}
+
+.font-small {
+    font-family: "Inter";
+    font-style: normal;
+    font-size: 0.75rem; /* 12px */
+    line-height: 1rem; /* 16px */
+}
+
+.font-button {
+    font-family: "Inter";
+    font-style: normal;
+    font-size: 0.875rem; /* 14px */
+    line-height: 0.875rem; /* 14px */
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 767px) {
+    h1,
+    .h1 {
+        font-size: 1.75rem; /* 28px */
+        line-height: 2rem; /* 32px */
+    }
+
+    h2,
+    .h2 {
+        font-size: 1.5rem; /* 24px */
+        line-height: 1.75rem; /* 28px */
+    }
+
+    h3,
+    .h3 {
+        font-size: 1.25rem; /* 20px */
+        line-height: 1.5rem; /* 24px */
+    }
+
+    h4,
+    .h4 {
+        font-size: 1rem; /* 16px */
+        line-height: 1.25rem; /* 20px */
+    }
+
+    .font-body {
+        font-size: 0.875rem; /* 14px */
+        line-height: 1.25rem; /* 20px */
+    }
+
+    .font-small {
+        font-size: 0.625rem; /* 10px */
+        line-height: 0.75rem; /* 12px */
+    }
+
+    .font-button {
+        font-size: 0.813rem; /* 13px */
+        line-height: 0.813rem; /* 13px */
+        font-weight: 700;
+    }
+}
+:root{
+    /* primary  */
+    --primary:#6E40FF ;
+    --primary-medium:#7548A8;
+    --primary-light:#E8E0FF;
+    --primary-lighter: #D8C9FF;
+    /* secondary */
+    --secondary:#109C72;
+    --secondary-light:#D9EFE8;
+
+    /* grayscale */
+    --grayscale:#172B4D;
+    --grayscale-5:#a3a2a5;
+    --grayscale-4:#6B788D;
+    --grayscale-3:#A2AAB8;
+    --grayscale-2:#DADDE2;
+    --grayscale-1:#EDEEF1;
+    --gray-purple:#97929C;
+    
+    /* blacks */
+    --pure-black: #000000;
+    --black:#201F20;
+    --black-deep:#0E0D0E;
+    --black-dark:#241C3C;
+    --black-shadow:#172b4d29;
+    --black-shadow-1:#c7e9ff;
+    --black-shadow-2:rgb(23 43 77 / 15%);
+    
+    /* whites */
+    --white:#FFFFFF;
+    --off-white:#F8F9FA;
+    --off-white-1:#F9F8FE;
+    --off-white-2:#DADAE2;
+
+    /* alerts */
+    --alert-success-font:#006100;
+    --alert-success-bg:#C6EFCE;
+    --alert-danger-font:#9C0006;
+    --alert-danger-bg:#FFC7CE;
+    --alert-warning-font:#9C5700;
+    --alert-warning-bg:#FFEB9C;
+    --alert-info-font:#FFEB9C;
+    --alert-info-bg:#C6CAF0;
+
+    /* error */
+    --error: #E53935;
+
+    /* button */
+    --button: #9E6DD2;
+    --button-bg: #262a4b;
 }
