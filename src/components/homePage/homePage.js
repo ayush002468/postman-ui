@@ -19,11 +19,17 @@ const HomePage = ({
   setBody,
   headers,
   setHeaders,
-  responseCookie,
-  responseHeaders,
+  history,
+  clearResponseTable,
   responseData,
-  responseStatus,
+  responseStatus
 }) => {
+    // console.log(history,
+    //     setHeaders,
+    //     setMethod,
+    //     setUrl,
+    //     setBody,
+    //     clearResponseTable);
 
 //   const { tabs, tabIndex, handleTabChange } = props;  
   const [statusClassName, setStatusClassName] = useState(
@@ -49,13 +55,20 @@ const HomePage = ({
       setStatusClassName("nav-item border rounded border-2 border-success");
     }
   }, [responseStatus]);
+  
   return (
     <div className="homePage-group verticle">
       <div className="homePage-container">
         <div className="homePage" style={{ height: "1198px", width: "1128px" }}>
           <div className="homepage-content">
             <div className="sideNav-group horizontal">
-              <Sidenav />
+              <Sidenav
+               history={history}
+               setMethod={setMethod}
+               setHeaders={setHeaders}
+               setUrl={setUrl}
+               setBody={setBody}
+               clearResponseTable={clearResponseTable}/>
 
               <div className="homePage-container">
                 <div className="homePage">
@@ -296,6 +309,42 @@ const HomePage = ({
                                               </div>
                                             </div>
                                           </div> */}
+                                          <div className="tab-content" id="pills-tabContent">
+          <div
+            className="tab-pane fade show active"
+            id="pills-body"
+            role="tabpanel"
+            aria-labelledby="pills-body-tab"
+          >
+            <textarea
+              name="body"
+              className="bg-light border border-1 rounded p-3 json-pretty"
+              id="body"
+              value={body}
+              cols="70"
+              rows="10"
+              onChange={e => setBody(e.target.value)}
+            ></textarea>
+          </div>
+          <div
+            className="tab-pane fade"
+            id="pills-headers"
+            role="tabpanel"
+            aria-labelledby="pills-headers-tab"
+          >
+            <textarea
+              name="headers"
+              className="bg-light border border-1 rounded p-3"
+              value={headers}
+              id="headers"
+              cols="70"
+              rows="10"
+              onChange={e => setHeaders(e.target.value)}
+            >
+              {headers}
+            </textarea>
+          </div>
+        </div>
                                         </div>
                                         <div className="homePage-tabs-actions">
                                           <div className="btn btn-text btn-action">

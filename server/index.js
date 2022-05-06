@@ -1,46 +1,56 @@
-const express = require("express");
-const cors = require("cors");
+import express, { json } from "express"
+import fetch from "node-fetch";
+import AllRoutes from "./Routes/index.js";
+// const AllRoutes = require('./Routes');
 
-const app = express();
 
-// middlewares
-
-app.use(cors({credentials: true,origin:"http://localhost:5000"}));
+let port = process.env.PORT || 2410;
+import cors from 'cors'
+let app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-// listening on port
-
-const PORT = 3000;
-app.listen(PORT, (err) => {
-  if (err) throw err;
-  console.log("Server listening in port:", PORT);
-});
-
-
-
-app.get("/", (req, res) => {
-  res.setHeader("Content-Type", "application/json");
-  res.status(200).json({ name: "aayush", age: 26 });
-});
-
-app.post("/", (req, res) => {
-  console.log(req.body);    
-  res.setHeader("Content-Type", "application/json");
-  res.status(300).json({ redirect: true });
-});
-
-app.delete("/", (req, res) => {
-  res.setHeader("Content-Type", "application/json");
-  res.status(404).json("not allowed");
-});
-
-app.put("/", (req, res) => {
-  console.log(req.body);
-  res.header("Access-Control-Allow-Credentials", true);
-  res.cookie("test", "application", {
-    httpOnly: false,
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers', 'X-Requested-With,content-type");
+    res.header("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Credentials: true")
+    next();
+  
   });
-  res.setHeader("Content-Type", "application/json");
-  res.status(200).send({ message: "you are welcome" });
-});
+app.use(cors({origin: '*','Access-Control-Allow-Origin': '*'}));
+// app.use(express.urlencoded({
+//     extended:true
+// }))
+// let x = {n:"l",p:"l",d:"l",h:"l",b:"l"}
+// x.n
+
+
+app.post('/get',async (req,res)=>{
+    let apiURL = req.body.url;
+    let method = req.body.method;
+    let body = req.body.body;
+
+    console.log('get '+apiURL, body);
+  if (method === 'GET') {
+    const response = await fetch(apiURL,{method:method})
+      .then((data) => data.json())
+      .then((data) => res.send(data))
+      .catch((error) => console.log(error));
+  }
+  else if (method === 'POST') {
+    let apiURL = req.body.url;
+    let method = req.body.method;
+    let body = req.body.body;
+    let header= {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    }
+    const response = fetch(apiURL,{method:"POST",body,headers:header})
+      .then((data) => data.json())
+      .then((data) => res.send(data))
+      .catch((error) => console.log(error));
+  }
+})
+
+
+// app.use('/',AllRoutes);
+app.listen(port,()=> console.log(`server started on http://localhost:${port}`))

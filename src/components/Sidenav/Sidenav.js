@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import collection from "../../img/collection.png";
 import History from "../../img/history.png";
 import "../Sidenav/Sidenav.css";
@@ -10,8 +10,10 @@ const Sidenav = (
   setUrl,
   setBody
 ) => {
+
   const clickHistoryItemHandler = (e) => {
-    const itemId = e.currentTarget.id;
+    const itemId = e.currentTarget.Math.random();
+    console.log(itemId);
     const requestItemConfig = history.find((item) => item.id === itemId);
     console.log(requestItemConfig);
 
@@ -20,8 +22,6 @@ const Sidenav = (
     setHeaders(requestItemConfig.headers);
     setUrl(requestItemConfig.url);
     setBody(requestItemConfig.body);
-
-    // clearResponseTable(); // clear the data of response table
   };
   return (
     <div className="sideNav-container">
@@ -176,12 +176,12 @@ const Sidenav = (
                               {/* <li className="list-group-item d-flex justify-content-center align-items-center pe-2 border-1 border-warning">
                                 <h3 className="text-warning">History Table</h3>
                               </li> */}
-                              {!history.length ? (
+                              {!history.history.length ? (
                                 <div className="text-center">
-                                  {/* No history items available */}
+                                  No history items available
                                 </div>
                               ) : (
-                                history.map((requestItem) => (
+                                history.history.map((requestItem) => (
                                   <li
                                     key={requestItem.id}
                                     id={requestItem.id}

@@ -30,6 +30,9 @@ html, body, #root, .App {
 .App-link {
   color: #61dafb;
 }
+.history--table{
+  
+}
 
 @keyframes App-logo-spin {
   from {

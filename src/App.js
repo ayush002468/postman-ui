@@ -2,7 +2,7 @@ import './App.css';
 import HomePage from './components/homePage/homePage';
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import Sidenav from './components/Sidenav/Sidenav';
+import axios from "axios"
 import "normalize.css/normalize.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
@@ -26,7 +26,6 @@ function App() {
     "Settings",
   ]);
 
-  // const [tabIndex, setTabIndex] = useState(0);
   const [requestsTabIndex, setRequestsTabIndex] = useState(0);
 
 
@@ -56,17 +55,10 @@ function App() {
         ...history,
         { id: id.toString(), url, method, headers, body },
       ]);
-
-      // headers operation
-      const parsedHeaders = new Headers(JSON.parse(headers));
-
-      const res = await fetch(url, {
-        headers: parsedHeaders,
-        body: method != "GET" ? body : undefined,
-        method: method,
-        credentials: "include",
-      });
-      const data = await res.json();
+      console.log(body)
+      const res = await axios.post("http://localhost:2410/get",{url,method,body,headers})
+      const data = res.data;
+      console.log(res)
 
       if (data) setResponseData(JSON.stringify(data));
       if (document.cookie) setResponseCookie(document.cookie);
@@ -105,7 +97,9 @@ function App() {
                 tabs={requestTabs}
                 tabIndex={requestsTabIndex}
                 handleTabChange={(index) => handleRequestTabChange(index)}
-                />        
+                />  
+                
+                     
     </div>
   );
 }
