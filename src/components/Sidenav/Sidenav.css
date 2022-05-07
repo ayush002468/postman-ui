@@ -220,3 +220,8 @@ input[type=search]{
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
 }
+@media (max-width: 1024px) {
+    .sideNav{
+        min-width: 240px;
+    }
+ }

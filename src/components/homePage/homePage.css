@@ -420,7 +420,7 @@
     flex-direction: column;
     flex: 1 auto;
     position: relative;
-    height: 32.94rem;
+    /* height: 32.94rem; */
 }
 .tabs{
     display: inline-flex;
@@ -744,4 +744,22 @@
 }
 .request-area{
     max-height: 8.5rem;
+}
+@media (max-width: 1024px) {
+    .homePage-group .homePage-container{
+        width: 100%;
+    }
+    .homePage-content{
+        min-width: 725px;
+    }
+    .homePage-request-editor{
+        height: auto;
+        min-width: 725px;
+    }
+    .editor_params, .url-container-main{
+        min-width: 725px;
+    }
+    .homePage-header{
+        width:690.175px
+    }
 }
